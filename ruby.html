@@ -388,7 +388,7 @@ h.fetch(:name)           # => "Joyce"
     var codeBlocks = document.getElementsByClassName("code-block")
     for (const codeblock of codeBlocks) {
       CodeMirror.fromTextArea(codeblock, {
-        lineNumbers: true,
+        lineNumbers: false,
         lineWrapping: true,
         viewportMargin: Infinity,
         readOnly: "nocursor",
@@ -396,6 +396,11 @@ h.fetch(:name)           # => "Joyce"
       });
     }
   </script>
+  <style>
+    @media print {
+      .code-block, .row {page-break-inside: avoid;}
+    }
+  </style>
 </body>
 
 </html>
