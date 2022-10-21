@@ -26,7 +26,9 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1>Ruby Keywords</h1>
+        <a href="#keywords" class="text-decoration-none text-dark">
+          <h1 id="keywords">Ruby Keywords</h1>
+        </a>
       </div>
     </div>
   </div>
@@ -246,7 +248,181 @@ strawberry.color = "red"
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1>Ruby Classes</h1>
+        <a href="#loops" class="text-decoration-none text-dark">
+          <h1 id="loops">Loops</h1>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid border border-dark">
+    <div class="row">
+      <div class="col-1 border-end border-bottom border-dark">Method name</div>
+      <div class="col-5 border-end border-bottom border-dark">Description</div>
+      <div class="col-6 border-end border-bottom border-dark">Example</div>
+    </div>
+    <div class="row">
+      <div class="col-1 border-end border-bottom border-dark">
+        <code>while</code>
+      </div>
+      <div class="col-5 border-end border-bottom border-dark">
+        The most basic loop. It's useful if you don't know how many times you need to loop in advance.
+      </div>
+      <div class="col-6 border-end border-bottom border-dark">
+        <textarea class="language-ruby code-block">
+n = 0
+while n < 3
+  p n
+  n = n + 1
+end
+# output:
+# 0
+# 1
+# 2     </textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1 border-end border-bottom border-dark">
+        <code>times</code>
+      </div>
+      <div class="col-5 border-end border-bottom border-dark">
+        An <code>Integer</code> method. The block of code will run <code>x</code> number of times,
+        where <code>x</code> is the Integer that is calling the method.
+
+        You can define a <b>block varaible</b>, that will start with <code>0</code> as a value, and increase by <code>1</code>
+        each time the loop runs.
+      </div>
+      <div class="col-6 border-end border-bottom border-dark">
+        <textarea class="language-ruby code-block">
+3.times do |n|
+  p n
+end
+# output: 
+# 0
+# 1
+# 2     </textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1 border-end border-bottom border-dark">
+        <code>upto</code>
+      </div>
+      <div class="col-5 border-end border-bottom border-dark">
+       Similar to the <code>times</code> method, except the the block of code will run <code>x</code> number of times,
+        where <code>x</code> is the Integer <em>argument</em> of the method.
+
+        If you define a <b>block varaible</b>, it's initial value will be the Integer that calls the method. The block variable will increase by <code>1</code>
+        each time the loop runs and end when the value reaches the Integer argument.
+      </div>
+      <div class="col-6 border-end border-bottom border-dark">
+        <textarea class="language-ruby code-block">
+3.upto(5) do |n|
+  p n
+end
+# output:
+# 3
+# 4
+# 5     </textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1 border-end border-bottom border-dark">
+        <code>downto</code>
+      </div>
+      <div class="col-5 border-end border-bottom border-dark">
+        Similar to <code>upto</code>, but the loop counts down instead of up.
+        If you define a <b>block varaible</b>, it's initial value will be the Integer that calls the method. The block variable will <b>decrease</b> by <code>1</code>
+        each time the loop runs and end when the value reaches the Integer argument.
+      </div>
+      <div class="col-6 border-end border-bottom border-dark">
+        <textarea class="language-ruby code-block">
+5.downto(3) do |n|
+  p n
+end
+# output:
+# 5
+# 4
+# 3        </textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1 border-end border-bottom border-dark">
+        <code>step</code>
+      </div>
+      <div class="col-5 border-end border-bottom border-dark">
+        The <code>step</code> method lets you specify all parts of the loop.
+        The Integer that calls the method is the starting value for the block variable.
+        The method accepts two arguments:
+        <ul>
+          <li>The first argument is the number you want the loop to end at</li>
+          <li>The second argument is the number you want the block variable to change, each time the loop iteration.</li>
+        </ul>
+      </div>
+      <div class="col-6 border-end border-bottom border-dark">
+        <textarea class="language-ruby code-block">
+12.step(6, -2) do |n|
+    puts n
+end
+# output:
+# 12
+# 10
+# 8 
+# 6         </textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1 border-end border-bottom border-dark">
+        <code>each</code>
+      </div>
+      <div class="col-5 border-end border-bottom border-dark">
+        The Ruby method <code>each</code> allows you to loop over a list of items,
+        without having to keep track of the number of iterations, or having to increase some kind of counter.
+
+        <code>each</code> can only be called on <code>Array</code>-like objects.
+      </div>
+      <div class="col-6 border-end border-bottom border-dark">
+        <textarea class="language-ruby code-block">
+numbers = [41, 23, 75]
+numbers.each do |n|
+  p n
+end
+# output:
+# 41
+# 23
+# 75
+        </textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1 border-end border-bottom border-dark">
+        <code>each_with_index</code>
+      </div>
+      <div class="col-5 border-end border-bottom border-dark">
+        This method works exactly like <code>each</code>, but gives you another block variable that you can define.
+        <br>
+        The second block variable is initialized to <code>0</code> and increases by one each time the loop completes.
+      </div>
+      <div class="col-6 border-end border-bottom border-dark">
+        <textarea class="language-ruby code-block">
+fruits = ["apple", "banana", "orange"]
+fruits.each_with_index do |fruit, index|
+  p fruit + " " + index.to_s
+end
+# output:
+# "apple 0"
+# "banana 1"
+# "orange 2"
+        </textarea>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <a href="#classes" class="text-decoration-none text-dark">
+          <h1 id="classes">Ruby Classes</h1>
+        </a>
       </div>
     </div>
   </div>
@@ -258,7 +434,7 @@ strawberry.color = "red"
     </div>
     <div class="row">
       <div class="col-1 border-end border-bottom border-dark">
-        "Boolean"
+        Boolean
       </div>
       <div class="col-5 border-end border-bottom border-dark">
         The Boolean data type is a truthy value, either <code>true</code> or <code>false</code>. In Ruby, every value is considered truthy, except <code>nil</code> and <code>false</code>.
@@ -359,6 +535,7 @@ array.push(3.141) # => ["apple", 42, true, [], 3.141]
         <textarea class="language-ruby code-block">
 hash = { :key => "value" }
 hash.fetch(:key)   # => "value"
+
 class Person
   attr_attribute(:first_name)
 end
@@ -383,6 +560,7 @@ h.fetch(:name)           # => "Joyce"
       </div>
     </div>
   </div>
+
   <script>
     var myTextarea = document.getElementById("editor")
     var codeBlocks = document.getElementsByClassName("code-block")
