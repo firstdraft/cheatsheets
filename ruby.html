@@ -441,19 +441,14 @@ end
       </div>
       <div class="col-6 border-end border-bottom border-dark">
         <textarea class="language-ruby code-block">
-if true
-  p "yes"
-end
-# => "yes"
 if 42
-  p "still yes"
+  p "this is true"
 end
-# => "still yes"
+# => "this is true"
 if nil
   p "this doesn't print"
 end
-# => 
-        </textarea>
+# =>         </textarea>
       </div>
     </div>
     <div class="row">
@@ -561,6 +556,64 @@ h.fetch(:name)           # => "Joyce"
     </div>
   </div>
 
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <a href="#where" class="text-decoration-none text-dark">
+          <h1 id="where">Querying with <code>where</code></h1>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid border border-dark">
+    <div class="row">
+      <div class="col-6 border-end border-bottom border-dark">Description</div>
+      <div class="col-6 border-end border-bottom border-dark">Example</div>
+    </div>
+    <div class="row">
+      <div class="col-6 border-end border-bottom border-dark">
+        <code>where</code> is used to look up records from our database.
+        <br>
+        <br>
+        <code>Class.where({ :key => value }).at(0)</code>
+        <ul>
+          <li>
+            <code>Class</code> - the table that you want to retreive records from
+          </li>
+          <li>
+            <code>:key</code> - the column that you're searching in (must be a <code>Symbol</code>)
+          </li>
+          <li>
+            <code>value</code> - the actual value that you're searching for in the column
+            <ul>
+              <li>
+                this could be any type of object, but the type should usually match the type of column you're searching in.
+              </li>
+              <li>
+                for example: if you're looking in the <code>name</code> column and <code>name</code> is a <code>String</code> type column, the value that you're looking for should be a <code>String</code> like: <code>"Talia Amos"</code> 
+              </li>
+            </ul>
+          </li>
+          <li>
+            <code>.at(0)</code> - add this if you are looking for one record using a unique column like <code>id</code>.
+          </li>
+        </ul>
+    
+      </div>
+      <div class="col-6 border-end border-bottom border-dark">
+        <textarea class="language-ruby code-block">
+dark_knight = Movie.where({ :title => "The Dark Knight"}).at(0)
+=> #<Movie:0x0000559ad49d2a78
+ id: 6,
+ title: "The Dark Knight",
+ ...>
+Movie.where({ :director_id => 5 })
+ => Movie::ActiveRecord_Relation (array with 5 Movie instances inside)
+        </textarea>
+      </div>
+    </div>
+  </div>
   <script>
     var myTextarea = document.getElementById("editor")
     var codeBlocks = document.getElementsByClassName("code-block")
